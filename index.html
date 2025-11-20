@@ -1,46 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pastel Study Timer</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <title>CloumiFlow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div id="background"></div>
+  <div id="background"></div>
+  <div class="overlay"></div>
 
-<div class="container">
-  <h1 class="title">Study Timer</h1>
+  <div class="app">
+    <header class="top-bar">
+      <div class="logo">cloumi<span>flow</span></div>
+    </header>
 
-  <div class="timer">
-    <span id="minutes">25</span>:<span id="seconds">00</span>
+    <main class="center">
+      <div class="timer-display">
+        <span id="minutes">25</span><span class="colon">:</span><span id="seconds">00</span>
+      </div>
+
+      <div class="timer-controls">
+        <button id="startBtn" class="primary">Start</button>
+        <button id="resetBtn" class="ghost">Reset</button>
+      </div>
+
+      <div class="preset-controls">
+        <button id="pomodoroBtn" class="chip">Pomodoro 25/5</button>
+        <button id="customToggleBtn" class="chip">Custom</button>
+      </div>
+
+      <div id="customBox" class="custom-row hidden">
+        <input id="customMinutes" type="number" min="1" max="240" placeholder="Minutes (e.g. 45)" />
+        <button id="applyCustomBtn" class="primary small">Apply</button>
+      </div>
+    </main>
+
+    <div class="spotify-floating">
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4SBhb3fqCJd?utm_source=generator"
+        width="100%" height="80" frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </div>
+
+    <div class="corner-controls">
+      <button id="bgToggleBtn" class="icon-btn" title="Change background">🖼</button>
+      <button id="fullscreenBtn" class="icon-btn" title="Toggle fullscreen">⛶</button>
+      <button id="settingsBtn" class="icon-btn" title="Settings (coming soon)">⚙</button>
+    </div>
+
+    <div id="bgPicker" class="bg-picker hidden">
+      <button class="bg-thumb" data-bg="forest" style="background-image:url('assets/backgrounds/forest.png');"></button>
+      <button class="bg-thumb" data-bg="clouds" style="background-image:url('assets/backgrounds/clouds.png');"></button>
+      <button class="bg-thumb" data-bg="gradient"></button>
+    </div>
   </div>
 
-  <div class="buttons">
-    <button id="startBtn">Start</button>
-    <button id="resetBtn">Reset</button>
-  </div>
-
-  <div class="presets">
-    <button onclick="setPomodoro()">Pomodoro 25/5</button>
-    <button onclick="showCustom()">Custom</button>
-  </div>
-
-  <div id="customBox" class="custom hidden">
-    <input id="customMinutes" type="number" placeholder="Minutes" />
-    <button onclick="applyCustom()">Apply</button>
-  </div>
-
-  <div class="spotify">
-    <iframe style="border-radius:12px"
-  src="https://open.spotify.com/embed/playlist/37i9dQZF1DX2UgsUIg75Vg?utm_source=generator"
-  width="100%" height="152" frameBorder="0"
-  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-  loading="lazy"></iframe>
-  </div>
-</div>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
