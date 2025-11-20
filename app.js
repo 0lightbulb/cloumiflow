@@ -32,6 +32,7 @@ function startTimer() {
       clearInterval(timerInterval);
       isRunning = false;
       startBtn.textContent = 'Start';
+      // TODO: optional sound or visual
     }
   }, 1000);
 }
@@ -76,6 +77,8 @@ applyCustomBtn.addEventListener('click', () => {
     totalSeconds = mins * 60;
     updateDisplay();
     localStorage.setItem('cloumi-custom-minutes', String(mins));
+    // auto-close after apply
+    customBox.classList.add('hidden');
   }
 });
 
@@ -93,23 +96,21 @@ const bgPicker = document.getElementById('bgPicker');
 const bgThumbs = document.querySelectorAll('.bg-thumb');
 
 const BACKGROUNDS = {
-  forest: "assets/backgrounds/forest.png",
-  clouds: "assets/backgrounds/clouds.png",
-  gradient: "gradient"
+  bg1: 'assets/backgrounds/bg1.jpg',
+  bg2: 'assets/backgrounds/bg2.jpg',
+  bg3: 'assets/backgrounds/bg3.jpg',
+  bg4: 'assets/backgrounds/bg4.jpg',
+  bg5: 'assets/backgrounds/bg5.jpg',
+  bg6: 'assets/backgrounds/bg6.jpg',
+  bg7: 'assets/backgrounds/bg7.jpg',
+  bg8: 'assets/backgrounds/bg8.jpg'
 };
 
 function applyBackground(key) {
   const value = BACKGROUNDS[key];
   if (!value) return;
 
-  if (value === 'gradient') {
-    bgEl.style.backgroundImage =
-      "radial-gradient(circle at 0% 0%, #ffe3f1 0%, transparent 55%)," +
-      "radial-gradient(circle at 100% 100%, #b6e8ff 0%, transparent 55%)," +
-      "linear-gradient(135deg, #1c1232, #0f203a)";
-  } else {
-    bgEl.style.backgroundImage = `url('${value}')`;
-  }
+  bgEl.style.backgroundImage = `url('${value}')`;
 
   bgThumbs.forEach(btn => {
     btn.classList.toggle('active', btn.dataset.bg === key);
@@ -134,11 +135,11 @@ bgThumbs.forEach(btn => {
   if (stored && BACKGROUNDS[stored]) {
     applyBackground(stored);
   } else {
-    applyBackground('clouds');
+    applyBackground('bg1');
   }
 })();
 
-// Fullscreen toggle
+// Fullscreen toggle (top-right button)
 const fullscreenBtn = document.getElementById('fullscreenBtn');
 
 fullscreenBtn.addEventListener('click', () => {

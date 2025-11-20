@@ -36,8 +36,8 @@ body {
 .overlay {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at top, rgba(255,255,255,0.28), transparent 58%),
-              linear-gradient(160deg, rgba(9,9,22,0.95), rgba(40,12,52,0.9));
+  background: radial-gradient(circle at top, rgba(255,255,255,0.24), transparent 55%),
+              linear-gradient(160deg, rgba(9,9,22,0.96), rgba(40,12,52,0.9));
   mix-blend-mode: soft-light;
   z-index: -1;
 }
@@ -46,29 +46,57 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  padding: 24px 32px;
+  padding: 20px 28px;
   display: flex;
   flex-direction: column;
 }
 
+/* HEADER / LOGO */
+
 .top-bar {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-bottom: 12px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 8px;
 }
 
 .logo {
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: lowercase;
-  font-size: 1.1rem;
-  color: #fdf7f4;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.logo span {
+.logo-main {
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  font-size: 1.05rem;
+}
+
+.logo-accent {
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  font-size: 1.05rem;
   color: var(--accent);
 }
+
+.tagline {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(243, 232, 225, 0.78);
+}
+
+/* Fullscreen button (top-right) */
+
+.icon-btn.top-right {
+  position: relative;
+  right: 0;
+  bottom: 0;
+}
+
+/* CENTER STACK */
 
 .center {
   flex: 1;
@@ -76,7 +104,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+}
+
+.timer-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-height: 230px; /* keeps layout stable when custom opens */
+  margin-top: -20px; /* lift a bit higher on the screen */
 }
 
 .timer-display {
@@ -113,6 +149,8 @@ body {
 button {
   font-family: inherit;
 }
+
+/* BUTTON STYLES */
 
 .primary,
 .ghost,
@@ -167,15 +205,17 @@ button {
   background: rgba(255,255,255,0.06);
 }
 
+/* CUSTOM ROW (OVERLAY FEEL, NO LAYOUT JUMP) */
+
 .custom-row {
   display: flex;
   gap: 10px;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 4px;
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(5, 3, 18, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(5, 3, 18, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.32);
   backdrop-filter: blur(var(--bg-blur));
   -webkit-backdrop-filter: blur(var(--bg-blur));
 }
@@ -197,6 +237,8 @@ button {
   display: none !important;
 }
 
+/* SPOTIFY BOTTOM-LEFT */
+
 .spotify-floating {
   position: fixed;
   left: 20px;
@@ -208,7 +250,8 @@ button {
   box-shadow: 0 10px 30px rgba(0,0,0,0.7);
 }
 
-/* Bottom-right icon cluster */
+/* BOTTOM-RIGHT ICON CLUSTER (BG + SETTINGS) */
+
 .corner-controls {
   position: fixed;
   right: 20px;
@@ -241,7 +284,8 @@ button {
   background: rgba(255,255,255,0.06);
 }
 
-/* Background picker pop-up */
+/* BACKGROUND PICKER POPUP */
+
 .bg-picker {
   position: fixed;
   right: 20px;
@@ -252,7 +296,8 @@ button {
   border: 1px solid rgba(255,255,255,0.32);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   z-index: 7;
 }
@@ -270,12 +315,6 @@ button {
   overflow: hidden;
 }
 
-.bg-thumb[data-bg="gradient"] {
-  background-image: radial-gradient(circle at 10% 0%, #ffe3f1, transparent 55%),
-                    radial-gradient(circle at 90% 100%, #b3e4ff, transparent 55%),
-                    linear-gradient(135deg, #291b40, #1b2448);
-}
-
 .bg-thumb::after {
   content: "";
   position: absolute;
@@ -288,10 +327,11 @@ button {
   box-shadow: 0 0 0 2px var(--accent), 0 6px 16px rgba(0,0,0,0.7);
 }
 
-/* Responsive tweaks */
+/* RESPONSIVE */
+
 @media (max-width: 768px) {
   .app {
-    padding: 16px;
+    padding: 14px 14px 18px;
   }
 
   .timer-display {
@@ -312,5 +352,10 @@ button {
   .bg-picker {
     right: 12px;
     bottom: 64px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tagline {
+    display: none; /* keep header clean on very small screens */
   }
 }

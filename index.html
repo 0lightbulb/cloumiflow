@@ -15,33 +15,39 @@
 
   <div class="app">
     <header class="top-bar">
-      <div class="logo">cloumi<span>flow</span></div>
+      <div class="logo">
+        <span class="logo-main">cloumi</span><span class="logo-accent">flow</span>
+        <span class="tagline">find your focus flow</span>
+      </div>
+      <button id="fullscreenBtn" class="icon-btn top-right" title="Toggle fullscreen">⛶</button>
     </header>
 
     <main class="center">
-      <div class="timer-display">
-        <span id="minutes">25</span><span class="colon">:</span><span id="seconds">00</span>
-      </div>
+      <div class="timer-stack">
+        <div class="timer-display">
+          <span id="minutes">25</span><span class="colon">:</span><span id="seconds">00</span>
+        </div>
 
-      <div class="timer-controls">
-        <button id="startBtn" class="primary">Start</button>
-        <button id="resetBtn" class="ghost">Reset</button>
-      </div>
+        <div class="timer-controls">
+          <button id="startBtn" class="primary">Start</button>
+          <button id="resetBtn" class="ghost">Reset</button>
+        </div>
 
-      <div class="preset-controls">
-        <button id="pomodoroBtn" class="chip">Pomodoro 25/5</button>
-        <button id="customToggleBtn" class="chip">Custom</button>
-      </div>
+        <div class="preset-controls">
+          <button id="pomodoroBtn" class="chip">Pomodoro 25/5</button>
+          <button id="customToggleBtn" class="chip">Custom</button>
+        </div>
 
-      <div id="customBox" class="custom-row hidden">
-        <input id="customMinutes" type="number" min="1" max="240" placeholder="Minutes (e.g. 45)" />
-        <button id="applyCustomBtn" class="primary small">Apply</button>
+        <div id="customBox" class="custom-row hidden">
+          <input id="customMinutes" type="number" min="1" max="240" placeholder="Minutes (e.g. 45)" />
+          <button id="applyCustomBtn" class="primary small">Apply</button>
+        </div>
       </div>
     </main>
 
     <div class="spotify-floating">
       <iframe style="border-radius:12px"
-        src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4SBhb3fqCJd?utm_source=generator"
+        src="https://open.spotify.com/embed/playlist/5gaVqhrTrbBigae3ZAZfbq?utm_source=generator"
         width="100%" height="80" frameBorder="0"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"></iframe>
@@ -49,14 +55,18 @@
 
     <div class="corner-controls">
       <button id="bgToggleBtn" class="icon-btn" title="Change background">🖼</button>
-      <button id="fullscreenBtn" class="icon-btn" title="Toggle fullscreen">⛶</button>
       <button id="settingsBtn" class="icon-btn" title="Settings (coming soon)">⚙</button>
     </div>
 
     <div id="bgPicker" class="bg-picker hidden">
-      <button class="bg-thumb" data-bg="forest" style="background-image:url('assets/backgrounds/forest.png');"></button>
-      <button class="bg-thumb" data-bg="clouds" style="background-image:url('assets/backgrounds/clouds.png');"></button>
-      <button class="bg-thumb" data-bg="gradient"></button>
+      <button class="bg-thumb" data-bg="bg1" style="background-image:url('assets/backgrounds/bg1.jpg');"></button>
+      <button class="bg-thumb" data-bg="bg2" style="background-image:url('assets/backgrounds/bg2.jpg');"></button>
+      <button class="bg-thumb" data-bg="bg3" style="background-image:url('assets/backgrounds/bg3.jpg');"></button>
+      <button class="bg-thumb" data-bg="bg4" style="background-image:url('assets/backgrounds/bg4.jpg');"></button>
+      <button class="bg-thumb" data-bg="bg5" style="background-image:url('assets/backgrounds/bg5.jpg');"></button>
+      <button class="bg-thumb" data-bg="bg6" style="background-image:url('assets/backgrounds/bg6.jpg');"></button>
+      <button class="bg-thumb" data-bg="bg7" style="background-image:url('assets/backgrounds/bg7.jpg');"></button>
+      <button class="bg-thumb" data-bg="bg8" style="background-image:url('assets/backgrounds/bg8.jpg');"></button>
     </div>
   </div>
 
