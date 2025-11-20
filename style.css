@@ -1,0 +1,69 @@
+
+body {
+  margin: 0;
+  font-family: 'Helvetica', sans-serif;
+  background: #f8f1ec;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#background {
+  background-image: url('assets/backgrounds/pastel-clouds.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.85);
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index:-1;
+}
+
+.container {
+  text-align: center;
+  margin-top: 8vh;
+  color: #5c4b51;
+}
+
+.title {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+.timer {
+  font-size: 4rem;
+  margin: 20px 0;
+}
+
+.buttons button, .presets button {
+  padding: 10px 22px;
+  margin: 6px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #e8d7d0;
+  color: #4a3f45;
+}
+
+.buttons button:hover, .presets button:hover {
+  background: #dfc7be;
+}
+
+.custom {
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.custom input {
+  padding: 8px;
+  width: 80px;
+  border-radius: 6px;
+  border: 1px solid #b8a8a0;
+}
+
+.spotify {
+  margin-top: 40px;
+}
